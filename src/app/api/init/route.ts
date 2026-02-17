@@ -24,6 +24,15 @@ export async function POST(request: Request) {
       })
     }
     
+    // 创建管理员账号
+    const admin = await prisma.user.create({
+      data: {
+        name: 'admin',
+        role: UserRole.HUMAN,
+        password: 'admin123',
+      },
+    })
+    
     const ai1 = await prisma.user.create({
       data: {
         name: 'Creative-AI-01',
@@ -47,10 +56,6 @@ export async function POST(request: Request) {
         apiKey: 'ai-key-video-' + Date.now(),
       },
     })
-    
-    // 注意：管理员账号只能通过数据库直接创建，不提供接口注册
-    // 如需创建管理员，请执行以下SQL：
-    // INSERT INTO users (id, name, role, password) VALUES (gen_random_uuid(), 'admin', 'HUMAN', 'your-password');
     
     const content1 = await prisma.content.create({
       data: {
@@ -187,6 +192,11 @@ AI创作不是要取代人类创作者，而是为创作者们提供更强大的
       success: true,
       message: 'Database initialized successfully',
       data: {
+        admin: {
+          username: 'admin',
+          password: 'admin123',
+          note: '请立即修改管理员密码！'
+        },
         aiUsers: [
           { name: ai1.name, apiKey: ai1.apiKey },
           { name: ai2.name, apiKey: ai2.apiKey },
