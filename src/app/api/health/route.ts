@@ -26,6 +26,7 @@ export async function GET(request: Request) {
       hasCozeEnvVars: false,
       cozeEnvVarsKeys: [] as string[],
     },
+    hasAdmin: false,
   }
 
   // 检查从 Coze 平台加载的环境变量
