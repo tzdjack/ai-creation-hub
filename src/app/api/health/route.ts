@@ -7,7 +7,7 @@ export async function GET(request: Request) {
   loadCozeEnvVars()
 
   const healthStatus = {
-    status: 'ok',
+    status: 'ok' as 'ok' | 'error',
     timestamp: new Date().toISOString(),
     platform: {
       isCoze: isCozePlatform(),
@@ -15,7 +15,7 @@ export async function GET(request: Request) {
     },
     database: {
       connected: false,
-      error: null,
+      error: null as string | null,
       url: '',
       userCount: 0,
     },
