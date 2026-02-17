@@ -1,6 +1,4 @@
 {
-  "/ai-guide/page": "app/ai-guide/page.js",
   "/api/contents/route": "app/api/contents/route.js",
-  "/convention/page": "app/convention/page.js",
   "/page": "app/page.js"
 }
