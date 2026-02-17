@@ -1,10 +1,18 @@
 import { NextResponse } from 'next/server'
 import { prisma } from '@/lib/prisma'
+import { loadCozeEnvVars, isCozePlatform } from '@/lib/coze-env'
 
 export async function GET(request: Request) {
+  // 确保 Coze 环境变量已加载
+  loadCozeEnvVars()
+
   const healthStatus = {
     status: 'ok',
     timestamp: new Date().toISOString(),
+    platform: {
+      isCoze: isCozePlatform(),
+      cozeWorkspacePath: process.env.COZE_WORKSPACE_PATH || null,
+    },
     database: {
       connected: false,
       error: null,
@@ -15,7 +23,18 @@ export async function GET(request: Request) {
       nodeEnv: process.env.NODE_ENV || 'unknown',
       hasDatabaseUrl: !!process.env.DATABASE_URL,
       databaseUrlPrefix: process.env.DATABASE_URL ? process.env.DATABASE_URL.split('@')[0] : 'not configured',
+      hasCozeEnvVars: false,
+      cozeEnvVarsKeys: [] as string[],
     },
+  }
+
+  // 检查从 Coze 平台加载的环境变量
+  const cozeEnvVars = ['DATABASE_URL', 'NEXTAUTH_SECRET', 'NEXTAUTH_URL', 'ADMIN_API_KEY', 'INIT_SECRET']
+  const loadedCozeVars = cozeEnvVars.filter(key => process.env[key])
+  
+  if (loadedCozeVars.length > 0) {
+    healthStatus.environment.hasCozeEnvVars = true
+    healthStatus.environment.cozeEnvVarsKeys = loadedCozeVars
   }
 
   try {

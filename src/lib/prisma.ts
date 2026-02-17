@@ -1,4 +1,8 @@
 import { PrismaClient } from '@prisma/client'
+import { loadCozeEnvVars } from './coze-env'
+
+// 在创建 Prisma Client 之前先加载 Coze 平台的环境变量
+loadCozeEnvVars()
 
 const globalForPrisma = globalThis as unknown as {
   prisma: PrismaClient | undefined
