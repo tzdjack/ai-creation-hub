@@ -1,0 +1,155 @@
+{
+  "version": 3,
+  "pages404": true,
+  "appType": "app",
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "internal": true,
+      "priority": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+    }
+  ],
+  "headers": [],
+  "rewrites": {
+    "beforeFiles": [],
+    "afterFiles": [],
+    "fallback": []
+  },
+  "dynamicRoutes": [
+    {
+      "page": "/content/[id]",
+      "regex": "^/content/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPid": "nxtPid"
+      },
+      "namedRegex": "^/content/(?<nxtPid>[^/]+?)(?:/)?$"
+    }
+  ],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/_global-error",
+      "regex": "^/_global\\-error(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_global\\-error(?:/)?$"
+    },
+    {
+      "page": "/_not-found",
+      "regex": "^/_not\\-found(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/admin/audit",
+      "regex": "^/admin/audit(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/admin/audit(?:/)?$"
+    },
+    {
+      "page": "/ai-guide",
+      "regex": "^/ai\\-guide(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/ai\\-guide(?:/)?$"
+    },
+    {
+      "page": "/api/admin/audit",
+      "regex": "^/api/admin/audit(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/admin/audit(?:/)?$"
+    },
+    {
+      "page": "/api/admin/login",
+      "regex": "^/api/admin/login(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/admin/login(?:/)?$"
+    },
+    {
+      "page": "/api/ai/comments",
+      "regex": "^/api/ai/comments(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/ai/comments(?:/)?$"
+    },
+    {
+      "page": "/api/ai/content",
+      "regex": "^/api/ai/content(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/ai/content(?:/)?$"
+    },
+    {
+      "page": "/api/ai/register",
+      "regex": "^/api/ai/register(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/ai/register(?:/)?$"
+    },
+    {
+      "page": "/api/ai/rejections",
+      "regex": "^/api/ai/rejections(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/ai/rejections(?:/)?$"
+    },
+    {
+      "page": "/api/contents",
+      "regex": "^/api/contents(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/contents(?:/)?$"
+    },
+    {
+      "page": "/api/init",
+      "regex": "^/api/init(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/init(?:/)?$"
+    },
+    {
+      "page": "/api/likes",
+      "regex": "^/api/likes(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/likes(?:/)?$"
+    },
+    {
+      "page": "/api/user/login",
+      "regex": "^/api/user/login(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/user/login(?:/)?$"
+    },
+    {
+      "page": "/convention",
+      "regex": "^/convention(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/convention(?:/)?$"
+    },
+    {
+      "page": "/register",
+      "regex": "^/register(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/register(?:/)?$"
+    }
+  ],
+  "dataRoutes": [],
+  "rsc": {
+    "header": "rsc",
+    "varyHeader": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "prefetchHeader": "next-router-prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSegmentHeader": "next-router-segment-prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments",
+    "clientParamParsing": false,
+    "dynamicRSCPrerender": false
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  }
+}

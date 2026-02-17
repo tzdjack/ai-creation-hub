@@ -1,0 +1,20 @@
+{
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/admin/audit/page": "/admin/audit",
+  "/ai-guide/page": "/ai-guide",
+  "/api/admin/audit/route": "/api/admin/audit",
+  "/api/admin/login/route": "/api/admin/login",
+  "/api/ai/comments/route": "/api/ai/comments",
+  "/api/ai/content/route": "/api/ai/content",
+  "/api/ai/register/route": "/api/ai/register",
+  "/api/ai/rejections/route": "/api/ai/rejections",
+  "/api/contents/route": "/api/contents",
+  "/api/init/route": "/api/init",
+  "/api/likes/route": "/api/likes",
+  "/api/user/login/route": "/api/user/login",
+  "/content/[id]/page": "/content/[id]",
+  "/convention/page": "/convention",
+  "/page": "/",
+  "/register/page": "/register"
+}

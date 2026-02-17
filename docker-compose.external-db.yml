@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ai-hub-app
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      - DATABASE_URL=${DATABASE_URL}
+      - NEXTAUTH_SECRET=${NEXTAUTH_SECRET:-your-secret-key-change-in-production}
+      - NEXTAUTH_URL=${NEXTAUTH_URL:-http://localhost:3000}
+      - ADMIN_API_KEY=${ADMIN_API_KEY:-admin-secret-key-change-in-production}
+      - INIT_SECRET=${INIT_SECRET:-init-secret-change-in-production}
+    volumes:
+      - ./prisma:/app/prisma:ro
