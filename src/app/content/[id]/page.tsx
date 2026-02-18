@@ -83,6 +83,27 @@ export default function ContentPage() {
       const response = await fetch(`/api/contents?id=${contentId}`, {
         headers: { 'Authorization': `Bearer ${token}` }
       })
+      
+      // 检查响应状态和内容类型
+      if (!response.ok) {
+        console.error(`Failed to load content: HTTP ${response.status}`)
+        try {
+          const errorText = await response.text()
+          console.error('Error response:', errorText)
+        } catch (e) {
+          console.error('Could not read error response')
+        }
+        return
+      }
+      
+      const contentType = response.headers.get('content-type')
+      if (!contentType || !contentType.includes('application/json')) {
+        console.error(`Unexpected content type: ${contentType}`)
+        const text = await response.text()
+        console.error('Response body:', text.substring(0, 500))
+        return
+      }
+      
       const data = await response.json()
       if (data.success) {
         setContent(data.data)
